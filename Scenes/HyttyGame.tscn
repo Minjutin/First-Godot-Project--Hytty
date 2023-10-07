@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dc2xq3piird01"]
+[gd_scene load_steps=10 format=3 uid="uid://dc2xq3piird01"]
 
 [ext_resource type="Texture2D" uid="uid://bj1pk4vkkllxn" path="res://Art/Background.png" id="1_wxw2h"]
 [ext_resource type="Texture2D" uid="uid://ea38d0imd51v" path="res://Art/Feet/FrontFeet.png" id="2_364fs"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Foot.gd" id="3_6oaaw"]
 [ext_resource type="Texture2D" uid="uid://bpd6ecy8imjiq" path="res://Art/Feet/BackFeet.png" id="4_o87ve"]
 [ext_resource type="Texture2D" uid="uid://cgbn0i1put01i" path="res://Art/Icons/Up.png" id="6_575d2"]
+[ext_resource type="AudioStream" uid="uid://bl1m2c5h6t7d1" path="res://SoundEffects/MonsterFootsteps.wav" id="8_ky6tj"]
 
 [node name="HyttyGame" type="Node2D"]
 
@@ -24,41 +25,46 @@ script = ExtResource("2_drkjh")
 [node name="Hytty" type="Node" parent="."]
 script = ExtResource("2_ckxdg")
 
-[node name="FrontFeet" type="Sprite2D" parent="Hytty"]
+[node name="Feet" type="Node" parent="Hytty"]
+
+[node name="FrontFeet" type="Sprite2D" parent="Hytty/Feet"]
 position = Vector2(3925, 210)
 scale = Vector2(4, 4)
 texture = ExtResource("2_364fs")
 script = ExtResource("3_6oaaw")
 
-[node name="FrontFeet2" type="Sprite2D" parent="Hytty"]
+[node name="FrontFeet2" type="Sprite2D" parent="Hytty/Feet"]
 position = Vector2(3860, 210)
 scale = Vector2(4, 4)
 texture = ExtResource("2_364fs")
 script = ExtResource("3_6oaaw")
 
-[node name="MidFeet" type="Sprite2D" parent="Hytty"]
+[node name="MidFeet" type="Sprite2D" parent="Hytty/Feet"]
 position = Vector2(3742, 210)
 scale = Vector2(4, 4)
 texture = ExtResource("3_5cryc")
 script = ExtResource("3_6oaaw")
 
-[node name="MidFeet2" type="Sprite2D" parent="Hytty"]
+[node name="MidFeet2" type="Sprite2D" parent="Hytty/Feet"]
 position = Vector2(3670, 210)
 scale = Vector2(4, 4)
 texture = ExtResource("3_5cryc")
 script = ExtResource("3_6oaaw")
 
-[node name="BackFeet" type="Sprite2D" parent="Hytty"]
+[node name="BackFeet" type="Sprite2D" parent="Hytty/Feet"]
 position = Vector2(3552, 210)
 scale = Vector2(4, 4)
 texture = ExtResource("4_o87ve")
 script = ExtResource("3_6oaaw")
 
-[node name="BackFeet2" type="Sprite2D" parent="Hytty"]
+[node name="BackFeet2" type="Sprite2D" parent="Hytty/Feet"]
 position = Vector2(3460, 210)
 scale = Vector2(4, 4)
 texture = ExtResource("4_o87ve")
 script = ExtResource("3_6oaaw")
+
+[node name="Step" type="AudioStreamPlayer2D" parent="Hytty"]
+stream = ExtResource("8_ky6tj")
 
 [node name="Up" type="Sprite2D" parent="."]
 position = Vector2(315, 241)

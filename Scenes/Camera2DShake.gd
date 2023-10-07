@@ -6,7 +6,7 @@ func _ready():
 	pass # Replace with function body.
 
 var shaking: float = 0.2
-var shake_amount = 2.0
+var shake_amount = 3.0
 var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _process(delta):
