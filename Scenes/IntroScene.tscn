@@ -26,3 +26,6 @@ vertical_alignment = 1
 position = Vector2(333, 248)
 scale = Vector2(4.03, 4.03)
 texture = ExtResource("3_x1q4f")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(333, 247)
