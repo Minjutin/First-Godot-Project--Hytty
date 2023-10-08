@@ -19,4 +19,4 @@ func _process(delta):
 		shaking = shaking + delta
 
 func shake_effect():
-	shaking = 0
+	shaking = 0.0

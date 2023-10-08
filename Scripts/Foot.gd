@@ -1,5 +1,7 @@
 extends Sprite2D
 
+@export var max_x: int
+
 var speed = 400
 var origin_y
 
@@ -17,8 +19,15 @@ func rise(delta):
 	var velocity = Vector2.ZERO
 	velocity = Vector2.UP.rotated(rotation) * speed + Vector2.RIGHT.rotated(rotation)*speed
 	position += velocity * delta
+	
+	#Ensure that foot will not go too high
 	if position.y < 0:
 		position.y = 0
+		
+	#Ensure that foot will not go too far away
+	if max_x < position.x:
+		position.x = max_x
+	
 
 func drop(delta):
 	var velocity = Vector2.ZERO

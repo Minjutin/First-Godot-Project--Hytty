@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dc2xq3piird01"]
+[gd_scene load_steps=18 format=3 uid="uid://dc2xq3piird01"]
 
 [ext_resource type="Texture2D" uid="uid://bj1pk4vkkllxn" path="res://Art/Background.png" id="1_wxw2h"]
+[ext_resource type="Script" path="res://Scenes/HyttyGame.gd" id="1_x3a0t"]
 [ext_resource type="Texture2D" uid="uid://ea38d0imd51v" path="res://Art/Feet/FrontFeet.png" id="2_364fs"]
 [ext_resource type="Script" path="res://Scenes/FootMover.gd" id="2_ckxdg"]
 [ext_resource type="Script" path="res://Scenes/Camera2DShake.gd" id="2_drkjh"]
@@ -9,8 +10,29 @@
 [ext_resource type="Texture2D" uid="uid://bpd6ecy8imjiq" path="res://Art/Feet/BackFeet.png" id="4_o87ve"]
 [ext_resource type="Texture2D" uid="uid://cgbn0i1put01i" path="res://Art/Icons/Up.png" id="6_575d2"]
 [ext_resource type="AudioStream" uid="uid://bl1m2c5h6t7d1" path="res://SoundEffects/MonsterFootsteps.wav" id="8_ky6tj"]
+[ext_resource type="Texture2D" uid="uid://o2y4psavq87a" path="res://Art/Trunk1.png" id="10_ukqrv"]
+[ext_resource type="Texture2D" uid="uid://deryykyl6xxny" path="res://Art/Trunk2.png" id="11_qhirc"]
+[ext_resource type="AudioStream" uid="uid://cxhigg415p3ol" path="res://SoundEffects/689289__cakon__se-drink.mp3" id="12_ji00f"]
+[ext_resource type="Texture2D" uid="uid://c5u0v8j3rt6xf" path="res://Art/VillageOuter.png" id="13_cbq4t"]
+[ext_resource type="Texture2D" uid="uid://di32bwhjoqjya" path="res://Art/endscreen.png" id="15_8m7xs"]
+[ext_resource type="FontFile" uid="uid://bt4li6iexbybh" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="16_yb25l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_68muv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ukqrv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qhirc")
+}],
+"loop": false,
+"name": &"default",
+"speed": 2.0
+}]
 
 [node name="HyttyGame" type="Node2D"]
+script = ExtResource("1_x3a0t")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(3194, 242)
@@ -28,45 +50,94 @@ script = ExtResource("2_ckxdg")
 [node name="Feet" type="Node" parent="Hytty"]
 
 [node name="FrontFeet" type="Sprite2D" parent="Hytty/Feet"]
-position = Vector2(3925, 210)
+position = Vector2(5567, 195)
 scale = Vector2(4, 4)
 texture = ExtResource("2_364fs")
 script = ExtResource("3_6oaaw")
+max_x = 5700
 
 [node name="FrontFeet2" type="Sprite2D" parent="Hytty/Feet"]
-position = Vector2(3860, 210)
+position = Vector2(5502, 195)
 scale = Vector2(4, 4)
 texture = ExtResource("2_364fs")
 script = ExtResource("3_6oaaw")
+max_x = 5700
 
 [node name="MidFeet" type="Sprite2D" parent="Hytty/Feet"]
-position = Vector2(3742, 210)
+position = Vector2(5384, 195)
 scale = Vector2(4, 4)
 texture = ExtResource("3_5cryc")
 script = ExtResource("3_6oaaw")
+max_x = 5500
 
 [node name="MidFeet2" type="Sprite2D" parent="Hytty/Feet"]
-position = Vector2(3670, 210)
+position = Vector2(5312, 195)
 scale = Vector2(4, 4)
 texture = ExtResource("3_5cryc")
 script = ExtResource("3_6oaaw")
+max_x = 5500
 
 [node name="BackFeet" type="Sprite2D" parent="Hytty/Feet"]
-position = Vector2(3552, 210)
+position = Vector2(5194, 195)
 scale = Vector2(4, 4)
 texture = ExtResource("4_o87ve")
 script = ExtResource("3_6oaaw")
+max_x = 5300
 
 [node name="BackFeet2" type="Sprite2D" parent="Hytty/Feet"]
-position = Vector2(3460, 210)
+position = Vector2(5102, 195)
 scale = Vector2(4, 4)
 texture = ExtResource("4_o87ve")
 script = ExtResource("3_6oaaw")
+max_x = 5300
 
 [node name="Step" type="AudioStreamPlayer2D" parent="Hytty"]
 stream = ExtResource("8_ky6tj")
+
+[node name="Trunk" type="AnimatedSprite2D" parent="Hytty"]
+position = Vector2(5661, -232)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_68muv")
+frame = 1
+frame_progress = 1.0
+
+[node name="Slurp" type="AudioStreamPlayer2D" parent="Hytty/Trunk"]
+stream = ExtResource("12_ji00f")
+pitch_scale = 1.2
 
 [node name="Up" type="Sprite2D" parent="."]
 position = Vector2(315, 241)
 scale = Vector2(4, 4)
 texture = ExtResource("6_575d2")
+
+[node name="VillageOuter" type="Sprite2D" parent="."]
+z_index = 4
+position = Vector2(5880, 316)
+scale = Vector2(4, 4)
+texture = ExtResource("13_cbq4t")
+
+[node name="EndScreen" type="Node" parent="."]
+
+[node name="Endscreen" type="Sprite2D" parent="EndScreen"]
+visible = false
+z_index = 260
+position = Vector2(5848, 225)
+scale = Vector2(4.3, 4.3)
+texture = ExtResource("15_8m7xs")
+
+[node name="Text" type="Label" parent="EndScreen"]
+visible = false
+z_index = 1308
+offset_left = 5614.0
+offset_top = 52.0
+offset_right = 6076.0
+offset_bottom = 286.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_yb25l")
+theme_override_font_sizes/font_size = 37
+text = "Only you can save the
+World from HYTTY
+
+Donate blood NOW"
+horizontal_alignment = 1
+vertical_alignment = 1
