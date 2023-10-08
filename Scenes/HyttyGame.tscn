@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dc2xq3piird01"]
+[gd_scene load_steps=22 format=3 uid="uid://dc2xq3piird01"]
 
 [ext_resource type="Texture2D" uid="uid://bj1pk4vkkllxn" path="res://Art/Background.png" id="1_wxw2h"]
 [ext_resource type="Script" path="res://Scenes/HyttyGame.gd" id="1_x3a0t"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/Camera2DShake.gd" id="2_drkjh"]
 [ext_resource type="Texture2D" uid="uid://bg8723qfaky7n" path="res://Art/Feet/MidFeet.png" id="3_5cryc"]
 [ext_resource type="Script" path="res://Scripts/Foot.gd" id="3_6oaaw"]
+[ext_resource type="AudioStream" uid="uid://r03e486pbslt" path="res://SoundEffects/horror-ambience-seamless-loop-the-lurking-within-148626.mp3" id="4_cxs1p"]
 [ext_resource type="Texture2D" uid="uid://bpd6ecy8imjiq" path="res://Art/Feet/BackFeet.png" id="4_o87ve"]
 [ext_resource type="Texture2D" uid="uid://cgbn0i1put01i" path="res://Art/Icons/Up.png" id="6_575d2"]
 [ext_resource type="AudioStream" uid="uid://bl1m2c5h6t7d1" path="res://SoundEffects/MonsterFootsteps.wav" id="8_ky6tj"]
@@ -60,6 +61,11 @@ position = Vector2(3098, 242)
 scale = Vector2(4, 4)
 script = ExtResource("2_drkjh")
 
+[node name="bgNoise" type="AudioStreamPlayer2D" parent="Camera2D"]
+scale = Vector2(0.25, 0.25)
+stream = ExtResource("4_cxs1p")
+volume_db = -9.487
+
 [node name="Hytty" type="Node" parent="."]
 script = ExtResource("2_ckxdg")
 
@@ -110,6 +116,7 @@ max_x = 5300
 
 [node name="Step" type="AudioStreamPlayer2D" parent="Hytty"]
 stream = ExtResource("8_ky6tj")
+volume_db = 1.368
 
 [node name="Trunk" type="AnimatedSprite2D" parent="Hytty"]
 position = Vector2(5661, -232)

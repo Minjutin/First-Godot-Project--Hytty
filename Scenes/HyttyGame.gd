@@ -21,6 +21,10 @@ func _ready():
 
 func _process(delta):
 	
+	#Play
+	if get_node("Camera2D/bgNoise").playing == false:
+			get_node("Camera2D/bgNoise").play() 
+	
 	#After end game has started, lerp camera first
 	if camera_lerp:
 		t += delta*0.3
