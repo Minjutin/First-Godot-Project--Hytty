@@ -63,8 +63,7 @@ func _process(delta):
 			said.position.y = 10
 		if i>2:
 			said.position.y = 280
-			
-	
+
 
 
 func download_with_index(index):
