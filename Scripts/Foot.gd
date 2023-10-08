@@ -9,6 +9,8 @@ var step_sound
 
 var has_been_transported: bool = false
 
+var rng = RandomNumberGenerator.new()
+
 func _ready():
 	origin_y = position.y
 	step_sound = self.get_parent().get_parent().get_node("Step")
@@ -45,6 +47,7 @@ func transport_in_drop():
 		get_node("/root/HyttyGame/Camera2D").shake_effect()
 
 		step_sound.position = self.position
+		step_sound.pitch_scale = 1+rng.randf_range(-0.2, 0.2)
 		step_sound.play()
 
 		

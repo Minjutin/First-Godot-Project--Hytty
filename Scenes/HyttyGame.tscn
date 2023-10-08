@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dc2xq3piird01"]
+[gd_scene load_steps=21 format=3 uid="uid://dc2xq3piird01"]
 
 [ext_resource type="Texture2D" uid="uid://bj1pk4vkkllxn" path="res://Art/Background.png" id="1_wxw2h"]
 [ext_resource type="Script" path="res://Scenes/HyttyGame.gd" id="1_x3a0t"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://deryykyl6xxny" path="res://Art/Trunk2.png" id="11_qhirc"]
 [ext_resource type="AudioStream" uid="uid://cxhigg415p3ol" path="res://SoundEffects/689289__cakon__se-drink.mp3" id="12_ji00f"]
 [ext_resource type="Texture2D" uid="uid://c5u0v8j3rt6xf" path="res://Art/VillageOuter.png" id="13_cbq4t"]
+[ext_resource type="Texture2D" uid="uid://cfl5ipeifww0f" path="res://Art/Icons/Down.png" id="14_qhk3d"]
+[ext_resource type="Script" path="res://Scenes/Sign.gd" id="15_4xmjq"]
 [ext_resource type="Texture2D" uid="uid://di32bwhjoqjya" path="res://Art/endscreen.png" id="15_8m7xs"]
 [ext_resource type="FontFile" uid="uid://bt4li6iexbybh" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="16_yb25l"]
 
@@ -31,6 +33,20 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_gvsn8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_575d2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qhk3d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="HyttyGame" type="Node2D"]
 script = ExtResource("1_x3a0t")
 
@@ -40,7 +56,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("1_wxw2h")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(320, 246)
+position = Vector2(3098, 242)
 scale = Vector2(4, 4)
 script = ExtResource("2_drkjh")
 
@@ -50,42 +66,43 @@ script = ExtResource("2_ckxdg")
 [node name="Feet" type="Node" parent="Hytty"]
 
 [node name="FrontFeet" type="Sprite2D" parent="Hytty/Feet"]
-position = Vector2(5567, 195)
+z_index = 4
+position = Vector2(2661, 199)
 scale = Vector2(4, 4)
 texture = ExtResource("2_364fs")
 script = ExtResource("3_6oaaw")
 max_x = 5700
 
 [node name="FrontFeet2" type="Sprite2D" parent="Hytty/Feet"]
-position = Vector2(5502, 195)
+position = Vector2(2566, 199)
 scale = Vector2(4, 4)
 texture = ExtResource("2_364fs")
 script = ExtResource("3_6oaaw")
 max_x = 5700
 
 [node name="MidFeet" type="Sprite2D" parent="Hytty/Feet"]
-position = Vector2(5384, 195)
+position = Vector2(2448, 199)
 scale = Vector2(4, 4)
 texture = ExtResource("3_5cryc")
 script = ExtResource("3_6oaaw")
 max_x = 5500
 
 [node name="MidFeet2" type="Sprite2D" parent="Hytty/Feet"]
-position = Vector2(5312, 195)
+position = Vector2(2376, 199)
 scale = Vector2(4, 4)
 texture = ExtResource("3_5cryc")
 script = ExtResource("3_6oaaw")
 max_x = 5500
 
 [node name="BackFeet" type="Sprite2D" parent="Hytty/Feet"]
-position = Vector2(5194, 195)
+position = Vector2(2258, 199)
 scale = Vector2(4, 4)
 texture = ExtResource("4_o87ve")
 script = ExtResource("3_6oaaw")
 max_x = 5300
 
 [node name="BackFeet2" type="Sprite2D" parent="Hytty/Feet"]
-position = Vector2(5102, 195)
+position = Vector2(2166, 199)
 scale = Vector2(4, 4)
 texture = ExtResource("4_o87ve")
 script = ExtResource("3_6oaaw")
@@ -105,16 +122,17 @@ frame_progress = 1.0
 stream = ExtResource("12_ji00f")
 pitch_scale = 1.2
 
-[node name="Up" type="Sprite2D" parent="."]
-position = Vector2(315, 241)
-scale = Vector2(4, 4)
-texture = ExtResource("6_575d2")
-
 [node name="VillageOuter" type="Sprite2D" parent="."]
 z_index = 4
 position = Vector2(5880, 316)
 scale = Vector2(4, 4)
 texture = ExtResource("13_cbq4t")
+
+[node name="Sign" type="AnimatedSprite2D" parent="."]
+position = Vector2(3097, 241)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_gvsn8")
+script = ExtResource("15_4xmjq")
 
 [node name="EndScreen" type="Node" parent="."]
 
