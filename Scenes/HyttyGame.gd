@@ -62,6 +62,7 @@ func _process(delta):
 		if trunk_time > 8:
 			get_node("EndScreen/Endscreen").visible = true
 			get_node("EndScreen/Text").visible = true
+			#get_node("Camera2D/bgNoise").stop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func start_endgame():
