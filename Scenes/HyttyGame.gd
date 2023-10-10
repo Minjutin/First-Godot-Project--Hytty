@@ -19,6 +19,7 @@ var trunk_time = 0.0
 func _ready():
 	trunk = get_node("Hytty/Trunk")
 
+#func 
 func _process(delta):
 	
 	#Play
@@ -46,7 +47,7 @@ func _process(delta):
 		elif trunk_can_move:
 			t_trunk += delta*0.4
 		trunk.position.x = lerp(float(trunk_og_position.x), 5900.0, t_trunk)
-		trunk.position.y = lerp(float(trunk_og_position.y), 212.0, t_trunk) 
+		trunk.position.y = lerp(float(trunk_og_position.y), 180.0, t_trunk) 
 
 	#start sucking
 	if trunk.position.x >= 5900:
